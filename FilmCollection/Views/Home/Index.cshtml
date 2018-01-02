@@ -1,0 +1,17 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<style>
+    .link {
+        font-size:25px;
+    }
+</style>
+<div style="padding-top:20px; padding-bottom:20px; padding-left:20px; padding-right:20px; margin-top:50px">
+    <div >
+        @Html.ActionLink("Filmovi", "Index", "Film", new { area = "" }, new { @class = "link" })
+    </div>
+    <div>
+        @Html.ActionLink("Režiseri", "Index", "Reziser", new { area = "" }, new { @class = "link" })
+    </div>
+</div>

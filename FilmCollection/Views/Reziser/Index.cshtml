@@ -1,0 +1,28 @@
+﻿@model IPagedList<FilmCollection.Models.Reziser>
+@using PagedList.Mvc;
+@using PagedList;
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 style="margin-top:70px">Režiseri</h2>
+
+<div>
+    <table class="table table-bordered table-striped">
+        <tr><td><b>Ime</b></td><td><b>Datum rođenja</b></td><td><b>Akcija</b></td></tr>
+        @foreach (var item in Model)
+        {
+            <tr><td>@(item.Ime + " " +item.Prezime)</td><td>@item.DatumRodjenja</td><td>@Html.ActionLink("Izmeni", "Edit", new { id = item.Id }) | @Html.ActionLink("Obriši", "Delete", new { id = item.Id })</td></tr>
+        }
+    </table>
+    <div>
+        @Html.ActionLink("Dodaj novog režisera", "Create")
+    </div>
+    <div>
+        @Html.ActionLink("Filmovi", "Index", "Film")
+    </div>
+</div>
+<p>
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page, pageSize = Model.PageSize }))
+
+</p>

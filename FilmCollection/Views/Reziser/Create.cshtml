@@ -1,0 +1,32 @@
+﻿@model FilmCollection.Models.Reziser
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2 style="margin-top:70px">Dodaj novog režisera</h2>
+
+<div>
+    @using (Html.BeginForm("Create", "Reziser", FormMethod.Post))
+    {
+        @Html.HiddenFor(model=>model.DatumRodjenja)
+        <div class="form-group">
+            @Html.LabelFor(model => model.Ime)
+            @Html.TextBoxFor(model => model.Ime, new { @class = "form-control", @placeholder = "Unesite ime rezisera" })
+            @Html.ValidationMessageFor(model => model.Ime, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Prezime)
+            @Html.TextBoxFor(model => model.Prezime, new { @class = "form-control", @placeholder = "Unesite prezime rezisera" })
+            @Html.ValidationMessageFor(model => model.Prezime, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.DatumRodjenja)
+            @Html.TextBoxFor(model => model.DatumRodjenja, new { @class = "form-control", @placeholder = "Unesite datum rodjenja rezisera" })
+            @Html.ValidationMessageFor(model => model.DatumRodjenja, "", new { @class = "text-danger" })
+        </div>
+        <input type="submit" class="btn" value="Dodaj" />
+        @Html.ActionLink("Nazad", "Index", "Reziser")
+    }
+
+</div>

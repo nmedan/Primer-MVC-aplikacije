@@ -1,0 +1,32 @@
+﻿@model FilmCollection.Models.Film
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2 style="margin-top:70px">Izmeni podatke o filmu: @ViewBag.Film</h2>
+
+<div>
+    @using (Html.BeginForm("Edit", "Film", FormMethod.Post))
+    {
+        @Html.HiddenFor(model=>model.Id)
+        <div class="form-group">
+            @Html.LabelFor(model => model.Ime)
+            @Html.TextBoxFor(model => model.Ime, Model.Ime, new { @class = "form-control", @placeholder = "Unesite ime filma" })
+            @Html.ValidationMessageFor(model => model.Ime, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Godina)
+            @Html.TextBoxFor(model => model.Godina, new { @class = "form-control", @placeholder = "Unesite godinu" })
+            @Html.ValidationMessageFor(model => model.Godina,"", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Reziser)
+            @Html.DropDownListFor(model => model.ReziserId, ViewBag.Reziseri as SelectList)
+
+        </div>
+        <input type="submit" class="btn" value="Sačuvaj izmene" />
+        @Html.ActionLink("Nazad", "Index", "Film")
+    }
+
+</div>
