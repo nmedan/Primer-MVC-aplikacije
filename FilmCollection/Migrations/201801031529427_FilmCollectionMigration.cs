@@ -7,12 +7,12 @@ namespace FilmCollection.Migrations
     {
         public override void Up()
         {
-            AlterColumn("dbo.Rezisers", "DatumRodjenja", c => c.DateTime());
+            AlterColumn("dbo.Rezisers", "DatumRodjenja", c => c.DateTime(nullable: false));
         }
         
         public override void Down()
         {
-            AlterColumn("dbo.Rezisers", "DatumRodjenja", c => c.DateTime(nullable: false));
+            AlterColumn("dbo.Rezisers", "DatumRodjenja", c => c.DateTime());
         }
     }
 }

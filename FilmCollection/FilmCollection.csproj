@@ -160,9 +160,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201801030237515_FilmCollectionMigration.cs" />
-    <Compile Include="Migrations\201801030237515_FilmCollectionMigration.Designer.cs">
-      <DependentUpon>201801030237515_FilmCollectionMigration.cs</DependentUpon>
+    <Compile Include="Migrations\201801031529427_FilmCollectionMigration.cs" />
+    <Compile Include="Migrations\201801031529427_FilmCollectionMigration.Designer.cs">
+      <DependentUpon>201801031529427_FilmCollectionMigration.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Film.cs" />
@@ -233,8 +233,8 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201801030237515_FilmCollectionMigration.resx">
-      <DependentUpon>201801030237515_FilmCollectionMigration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201801031529427_FilmCollectionMigration.resx">
+      <DependentUpon>201801031529427_FilmCollectionMigration.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -13,7 +13,7 @@ namespace FilmCollection.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201801030237515_FilmCollectionMigration"; }
+            get { return "201801031529427_FilmCollectionMigration"; }
         }
         
         string IMigrationMetadata.Source

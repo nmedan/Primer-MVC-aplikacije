@@ -12,7 +12,7 @@
         <tr><td><b>Ime</b></td><td><b>Datum rođenja</b></td><td><b>Akcija</b></td></tr>
         @foreach (var item in Model)
         {
-            <tr><td>@(item.Ime + " " +item.Prezime)</td><td>@item.DatumRodjenja</td><td>@Html.ActionLink("Izmeni", "Edit", new { id = item.Id }) | @Html.ActionLink("Obriši", "Delete", new { id = item.Id })</td></tr>
+            <tr><td>@(item.Ime + " " +item.Prezime)</td><td>@item.DatumRodjenja.Date</td><td>@Html.ActionLink("Izmeni", "Edit", new { id = item.Id }) | @Html.ActionLink("Obriši", "Delete", new { id = item.Id })</td></tr>
         }
     </table>
     <div>

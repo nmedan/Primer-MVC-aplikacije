@@ -14,10 +14,10 @@ namespace FilmCollection.Models
         [Required(ErrorMessage = "Molimo unesite prezime režisera.")]
         public string Prezime { get; set; }
         
-       
+        [Required(ErrorMessage = "Molimo unesite datum rođenja režisera")]
         [DataType(DataType.Date, ErrorMessage = "Molimo unesite datum u ispravnom obliku.")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
-        public DateTime? DatumRodjenja { get; set; }
+        public DateTime DatumRodjenja { get; set; }
         [NotMapped]
         public string PunoIme
         {
