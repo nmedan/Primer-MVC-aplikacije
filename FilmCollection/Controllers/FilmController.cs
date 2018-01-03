@@ -18,28 +18,37 @@ namespace FilmCollection.Controllers
         {
             
             ViewBag.Filmovi = db.Filmovi.Include(x=>x.Reziser).OrderBy(x=>x.Godina).ThenBy(x=>x.Ime).ToPagedList(page ?? 1, pageSize);
-            ViewBag.Reziser = new SelectList(db.Reziseri, "Id", "Prezime");
+            ViewBag.Reziser = new SelectList(db.Reziseri, "Id", "PunoIme");
             return View();
         }
 
         [HttpPost]
         public ActionResult Index(Pretraga pretraga, int? page, int pageSize = 3)
         {
-            ViewBag.Reziser = new SelectList(db.Reziseri, "Id", "Prezime");
-            if (ModelState.IsValid)
+            ViewBag.Reziser = new SelectList(db.Reziseri, "Id", "PunoIme", pretraga.Reziser);
+            if (pretraga.PocetnaGodina != null && pretraga.ZavrsnaGodina != null)
             {
+
                 ViewBag.Filmovi = db.Filmovi.Include(x => x.Reziser).Where(x => x.Godina >= pretraga.PocetnaGodina && x.Godina <= pretraga.ZavrsnaGodina && (x.Reziser.Id == pretraga.Reziser || pretraga.Reziser == null)).OrderBy(x => x.Godina).ThenBy(x => x.Ime).ToPagedList(page ?? 1, pageSize);
+            }
+            else if (pretraga.PocetnaGodina != null)
+            {
+                ViewBag.Filmovi = db.Filmovi.Include(x => x.Reziser).Where(x => x.Godina >= pretraga.PocetnaGodina && (x.Reziser.Id == pretraga.Reziser || pretraga.Reziser == null)).OrderBy(x => x.Godina).ThenBy(x => x.Ime).ToPagedList(page ?? 1, pageSize);
+            }
+            else if (pretraga.ZavrsnaGodina != null)
+            {
+                ViewBag.Filmovi = db.Filmovi.Include(x => x.Reziser).Where(x => x.Godina <= pretraga.ZavrsnaGodina && (x.Reziser.Id == pretraga.Reziser || pretraga.Reziser == null)).OrderBy(x => x.Godina).ThenBy(x => x.Ime).ToPagedList(page ?? 1, pageSize);
             }
             else
             {
-                ViewBag.Filmovi = db.Filmovi.Include(x => x.Reziser).OrderBy(x => x.Godina).ThenBy(x => x.Ime).ToPagedList(page ?? 1, pageSize);
+                ViewBag.Filmovi = db.Filmovi.Include(x => x.Reziser).Where(x => x.Reziser.Id == pretraga.Reziser || pretraga.Reziser == null).OrderBy(x => x.Godina).ThenBy(x => x.Ime).ToPagedList(page ?? 1, pageSize);
             }
             return View(pretraga);
         }
 
         public ActionResult Create()
         {
-            ViewBag.Reziseri = new SelectList(db.Reziseri, "Id", "Prezime");
+            ViewBag.Reziseri = new SelectList(db.Reziseri, "Id", "PunoIme");
             return View();
         }
 
@@ -52,7 +61,7 @@ namespace FilmCollection.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index", "Film");
             }
-            ViewBag.Reziseri = new SelectList(db.Reziseri, "Id", "Prezime", film.ReziserId);
+            ViewBag.Reziseri = new SelectList(db.Reziseri, "Id", "PunoIme", film.ReziserId);
             return View(film);
         }
 
@@ -65,7 +74,7 @@ namespace FilmCollection.Controllers
                 return HttpNotFound();
             }
             ViewBag.Film = film.Ime;
-            ViewBag.Reziseri = new SelectList(db.Reziseri, "Id", "Prezime");
+            ViewBag.Reziseri = new SelectList(db.Reziseri, "Id", "PunoIme");
             return View(film);
         }
 
@@ -79,7 +88,7 @@ namespace FilmCollection.Controllers
                 return RedirectToAction("Index");
             }
             ViewBag.Film = film.Ime;
-            ViewBag.Reziseri = new SelectList(db.Reziseri, "Id", "Prezime", film.ReziserId);
+            ViewBag.Reziseri = new SelectList(db.Reziseri, "Id", "PunoIme", film.ReziserId);
             return View(film);
         }
 

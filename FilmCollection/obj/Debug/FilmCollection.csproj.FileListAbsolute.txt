@@ -92,9 +92,9 @@ C:\Users\Nemanja\source\repos\FilmCollection\FilmCollection\bin\Microsoft.AI.Win
 C:\Users\Nemanja\source\repos\FilmCollection\FilmCollection\bin\Microsoft.AI.Web.xml
 C:\Users\Nemanja\source\repos\FilmCollection\FilmCollection\obj\Debug\FilmCollection.dll
 C:\Users\Nemanja\source\repos\FilmCollection\FilmCollection\obj\Debug\FilmCollection.pdb
-C:\Users\Nemanja\source\repos\FilmCollection\FilmCollection\obj\Debug\FilmCollection.Migrations.FilmMigration.resources
-C:\Users\Nemanja\source\repos\FilmCollection\FilmCollection\obj\Debug\FilmCollection.csproj.GenerateResource.Cache
 C:\Users\Nemanja\source\repos\FilmCollection\FilmCollection\bin\PagedList.dll
 C:\Users\Nemanja\source\repos\FilmCollection\FilmCollection\bin\PagedList.Mvc.dll
 C:\Users\Nemanja\source\repos\FilmCollection\FilmCollection\bin\PagedList.xml
 C:\Users\Nemanja\source\repos\FilmCollection\FilmCollection\bin\PagedList.Mvc.xml
+C:\Users\Nemanja\source\repos\FilmCollection\FilmCollection\obj\Debug\FilmCollection.Migrations.FilmCollectionMigration.resources
+C:\Users\Nemanja\source\repos\FilmCollection\FilmCollection\obj\Debug\FilmCollection.csproj.GenerateResource.Cache

@@ -21,9 +21,9 @@
             @Html.ValidationMessageFor(model => model.Godina,"", new { @class = "text-danger" })
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.Reziser)
-            @Html.DropDownListFor(model => model.ReziserId, ViewBag.Reziseri as SelectList)
-
+            @Html.LabelFor(model=>model.Reziser, "Režiser")
+            @Html.DropDownListFor(model => model.ReziserId, ViewBag.Reziseri as SelectList, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.ReziserId, "", new { @class = "text-danger" })
         </div>
         <input type="submit" class="btn" value="Sačuvaj izmene" />
         @Html.ActionLink("Nazad", "Index", "Film")

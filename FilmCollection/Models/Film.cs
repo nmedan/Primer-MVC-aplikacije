@@ -13,6 +13,7 @@ namespace FilmCollection.Models
         [Required(ErrorMessage = "Molimo unesite godinu filma.")]
         [Range(1800, 2017, ErrorMessage = "Molimo unesite godinu između 1800-te i 2017-e.")]
         public int Godina { get; set; }
+        [Required(ErrorMessage = "Molimo izaberite režisera.")]
         public int ReziserId { get; set; }
         public Reziser Reziser { get; set; }
         public Film()

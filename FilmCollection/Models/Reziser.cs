@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 namespace FilmCollection.Models
 {
     public class Reziser
@@ -12,10 +13,19 @@ namespace FilmCollection.Models
         public string Ime { get; set; }
         [Required(ErrorMessage = "Molimo unesite prezime režisera.")]
         public string Prezime { get; set; }
-        [Required]
-        [RegularExpression("\\d{4}-\\d{2}-\\d{2}", ErrorMessage = "Molimo da unesete datum u pravilnom formatu (godina\\mesec\\dan).")]
-        public string DatumRodjenja { get; set; }
-
+        
+       
+        [DataType(DataType.Date, ErrorMessage = "Molimo unesite datum u ispravnom obliku.")]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}", ApplyFormatInEditMode = true)]
+        public DateTime? DatumRodjenja { get; set; }
+        [NotMapped]
+        public string PunoIme
+        {
+            get
+            {
+                return Ime + " " + Prezime;
+            }
+        }
         public Reziser()
         {
 

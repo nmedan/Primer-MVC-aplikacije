@@ -21,7 +21,7 @@
             @Html.ValidationMessageFor(model => model.Prezime, "", new { @class = "text-danger" })
         </div>
         <div class="form-group">
-            @Html.LabelFor(model => model.DatumRodjenja)
+            @Html.LabelFor(model=>model.DatumRodjenja, "Datum rođenja")
             @Html.TextBoxFor(model => model.DatumRodjenja, new { @class = "form-control", @placeholder = "Unesite datum rodjenja rezisera" })
             @Html.ValidationMessageFor(model => model.DatumRodjenja, "", new { @class = "text-danger" })
         </div>
